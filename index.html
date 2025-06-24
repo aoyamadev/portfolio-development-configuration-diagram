@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AOYAMA PORTFOLIO 開発構成図</title>
+    <title>AOYAMA PORTFOLIO　開発構成図</title>
     <style>
       * {
         margin: 0;
@@ -185,29 +185,20 @@
       }
 
       .column-left {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 15px;
       }
 
       .column-right {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 15px;
-      }
-
-      .tech-stack {
-        flex: 1;
-      }
-
-      .deployment-card {
-        background: #0a0a0a;
-        border: 1px solid #1a1a1a;
       }
 
       .deployment-items {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 8px;
       }
 
@@ -278,9 +269,9 @@
 
       <div class="main-content">
         <div class="column-left">
-          <div class="card tech-stack">
-            <h3 class="card-title">Frontend Core</h3>
-            <div class="tech-grid" style="grid-template-columns: 1fr 1fr">
+          <div class="card">
+            <h3 class="card-title">Frontend</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr">
               <div class="tech-item">
                 <div class="tech-name">
                   Next.js <span class="version">v14.2.20</span>
@@ -295,40 +286,83 @@
               </div>
               <div class="tech-item">
                 <div class="tech-name">
-                  TypeScript <span class="version">v5</span>
+                  Type Script <span class="version">v5</span>
                 </div>
-                <div class="tech-desc">Type Safety</div>
-              </div>
-              <div class="tech-item">
-                <div class="tech-name">
-                  Tailwind CSS <span class="version">v4.1.8</span>
-                </div>
-                <div class="tech-desc">Utility-first CSS</div>
+                <div class="tech-desc">Programming Language</div>
               </div>
             </div>
           </div>
 
           <div class="card">
-            <h3 class="card-title">3D & Animation</h3>
+            <h3 class="card-title">Style・UI</h3>
             <div class="tech-grid" style="grid-template-columns: 1fr">
               <div class="tech-item">
                 <div class="tech-name">
-                  Three.js <span class="version">v0.170.0</span>
+                  Tailwind CSS <span class="version">v4.1.8</span>
                 </div>
-                <div class="tech-desc">3D Graphics Engine</div>
+                <div class="tech-desc">CSS framework</div>
               </div>
               <div class="tech-item">
-                <div class="tech-name">
-                  React Three Fiber <span class="version">v8.17.10</span>
-                </div>
-                <div class="tech-desc">React 3D Renderer</div>
+                <div class="tech-name">shadcn/ui</div>
+                <div class="tech-desc">Component Library</div>
               </div>
               <div class="tech-item">
-                <div class="tech-name">
-                  React Three Drei <span class="version">v9.117.3</span>
-                </div>
-                <div class="tech-desc">3D Helpers & Utils</div>
+                <div class="tech-name">Radix</div>
+                <div class="tech-desc">Component Library</div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card architecture-flow">
+          <h3 class="card-title">Architecture Overview</h3>
+          <div class="flow-container">
+            <div class="flow-line"></div>
+
+            <div class="flow-node">
+              <div class="flow-node-icon">👤</div>
+              <div class="flow-node-content">
+                <div class="flow-node-title">Client</div>
+                <div class="flow-node-desc">Browser (WebGL / React)</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-node">
+              <div class="flow-node-icon">⚡</div>
+              <div class="flow-node-content">
+                <div class="flow-node-title">Next.js</div>
+                <div class="flow-node-desc">App Router ・ SSR / SSG</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-node">
+              <div class="flow-node-icon">🔧</div>
+              <div class="flow-node-content">
+                <div class="flow-node-title">API Routes</div>
+                <div class="flow-node-desc">Vercel Edge Functions</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-node">
+              <div class="flow-node-icon">📧</div>
+              <div class="flow-node-content">
+                <div class="flow-node-title">Resend API</div>
+                <div class="flow-node-desc">Transactional Emails</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-right">
+          <div class="card">
+            <h3 class="card-title">Animation・Audio</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr 1fr 1fr">
               <div class="tech-item">
                 <div class="tech-name">
                   GSAP <span class="version">v3.12.5</span>
@@ -341,120 +375,47 @@
                 </div>
                 <div class="tech-desc">Animation Library</div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card architecture-flow">
-          <h3 class="card-title">Architecture Flow</h3>
-          <div class="flow-container">
-            <div class="flow-line"></div>
-
-            <div class="flow-node">
-              <div class="flow-node-icon">👤</div>
-              <div class="flow-node-content">
-                <div class="flow-node-title">Client</div>
-                <div class="flow-node-desc">Browser WebGL</div>
-              </div>
-            </div>
-
-            <div class="flow-arrow">↓</div>
-
-            <div class="flow-node">
-              <div class="flow-node-icon">⚡</div>
-              <div class="flow-node-content">
-                <div class="flow-node-title">Next.js</div>
-                <div class="flow-node-desc">SSR/SSG</div>
-              </div>
-            </div>
-
-            <div class="flow-arrow">↓</div>
-
-            <div class="flow-node">
-              <div class="flow-node-icon">🎨</div>
-              <div class="flow-node-content">
-                <div class="flow-node-title">3D Scene</div>
-                <div class="flow-node-desc">Three.js Canvas</div>
-              </div>
-            </div>
-
-            <div class="flow-arrow">↓</div>
-
-            <div class="flow-node">
-              <div class="flow-node-icon">🔧</div>
-              <div class="flow-node-content">
-                <div class="flow-node-title">API Routes</div>
-                <div class="flow-node-desc">Serverless Functions</div>
-              </div>
-            </div>
-
-            <div class="flow-arrow">↓</div>
-
-            <div class="flow-node">
-              <div class="flow-node-icon">📧</div>
-              <div class="flow-node-content">
-                <div class="flow-node-title">Resend API</div>
-                <div class="flow-node-desc">Email Service</div>
+              <div class="tech-item">
+                <div class="tech-name">
+                  Howler.js <span class="version">v2.2.12</span>
+                </div>
+                <div class="tech-desc">Audio Library</div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="column-right">
           <div class="card">
-            <h3 class="card-title">UI & Audio</h3>
-            <div class="tech-grid" style="grid-template-columns: 1fr">
+            <h3 class="card-title">3D</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr 1fr 1fr">
               <div class="tech-item">
-                <div class="tech-name">Radix UI</div>
-                <div class="tech-desc">Accessible Components</div>
+                <div class="tech-name">
+                  React Three Fiber <span class="version">v8.17.10</span>
+                </div>
+                <div class="tech-desc">3D Graphics Engine</div>
               </div>
               <div class="tech-item">
                 <div class="tech-name">
-                  Howler.js <span class="version">v2.2.4</span>
+                  Drei <span class="version">v9.117.3</span>
                 </div>
-                <div class="tech-desc">Web Audio API</div>
+                <div class="tech-desc">3D Graphics Library</div>
               </div>
               <div class="tech-item">
                 <div class="tech-name">
-                  Lucide React <span class="version">v0.462.0</span>
+                  React Spring <span class="version">v9.7.5</span>
                 </div>
-                <div class="tech-desc">Icon System</div>
-              </div>
-              <div class="tech-item">
-                <div class="tech-name">
-                  React Hot Toast <span class="version">v2.4.1</span>
-                </div>
-                <div class="tech-desc">Toast Notifications</div>
+                <div class="tech-desc">Animation Library</div>
               </div>
             </div>
           </div>
 
-          <div class="card deployment-card">
-            <h3 class="card-title">Development & Quality</h3>
-            <div class="deployment-items">
-              <div class="tech-item">
-                <div class="tech-name">
-                  PNPM <span class="version">v10.11.1</span>
-                </div>
-                <div class="tech-desc">Package Manager</div>
-              </div>
-              <div class="tech-item">
-                <div class="tech-name">
-                  Prettier <span class="version">v3.5.3</span>
-                </div>
-                <div class="tech-desc">Code Formatter</div>
-              </div>
-              <div class="tech-item">
-                <div class="tech-name">
-                  ESLint <span class="version">v8</span>
-                </div>
-                <div class="tech-desc">Code Linter</div>
-              </div>
+          <div class="card">
+            <h3 class="card-title">Form・Validation</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr 1fr">
               <div class="tech-item">
                 <div class="tech-name">
                   React Hook Form <span class="version">v7.54.0</span>
                 </div>
-                <div class="tech-desc">Form Management</div>
+                <div class="tech-desc">Form Library</div>
               </div>
               <div class="tech-item">
                 <div class="tech-name">
@@ -466,31 +427,47 @@
           </div>
 
           <div class="card">
-            <h3 class="card-title">Key Features</h3>
-            <div class="features-grid">
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>Interactive 3D Portfolio</span>
+            <h3 class="card-title">Hosting</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr">
+              <div class="tech-item">
+                <div class="tech-name">Vercel</div>
+                <div class="tech-desc">Hosting</div>
               </div>
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>Spatial Audio Experience</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Version Control</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr">
+              <div class="tech-item">
+                <div class="tech-name">GitHub</div>
+                <div class="tech-desc">Version Control</div>
               </div>
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>View Transitions API</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Package Manager</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr">
+              <div class="tech-item">
+                <div class="tech-name">
+                  pnpm <span class="version">v10.11.1</span>
+                </div>
+                <div class="tech-desc">Package Manager</div>
               </div>
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>Type-safe Development</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Code Quality</h3>
+            <div class="tech-grid" style="grid-template-columns: 1fr 1fr">
+              <div class="tech-item">
+                <div class="tech-name">Prettier</div>
+                <div class="tech-desc">Code Formatter</div>
               </div>
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>Code Quality Automation</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">•</span>
-                <span>Modern Email Integration</span>
+              <div class="tech-item">
+                <div class="tech-name">ESLint</div>
+                <div class="tech-desc">Code Linter</div>
               </div>
             </div>
           </div>
